@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ShopApp</string>
+    <string name="forgor_pasword">forgot password ?</string>
+    <string name="sign_in">Sign In</string>
+    <string name="new_user">New User?</string>
+    <string name="sign_up">Sign up</string>
+    <string name="here">here</string>
 </resources>

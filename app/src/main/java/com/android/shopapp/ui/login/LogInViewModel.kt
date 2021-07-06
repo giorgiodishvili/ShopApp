@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.android.shopapp.currentuser.UserAccount
 import com.android.shopapp.entity.login.LogInRequest
 import com.android.shopapp.entity.login.LogInResponse
 import com.android.shopapp.network.Resource
@@ -13,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LogInViewModel @Inject constructor(private val logInRepo: LogInRepository) : ViewModel() {
+class LogInViewModel @Inject constructor(private val logInRepo: LogInRepository, private val userData: UserAccount) : ViewModel() {
 
     private val _res = MutableLiveData<Resource<LogInResponse>>()
 
@@ -31,4 +32,12 @@ class LogInViewModel @Inject constructor(private val logInRepo: LogInRepository)
                 }
             }
         }
+
+    fun saveSession(inSession: Boolean){
+        userData.saveSession(inSession)
+    }
+
+    fun saveToken(token: String){
+        userData.saveToken(token)
+    }
 }

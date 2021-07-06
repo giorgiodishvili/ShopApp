@@ -51,7 +51,8 @@
                 android:textColorHint="@color/main_grey"
                 android:textSize="17sp"
                 android:textAlignment="viewStart"
-                tools:text="giorgi.odishvili" />
+                tools:text="giorgi.odishvili"
+                />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -74,8 +75,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:maxLines="1"
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp"
                 android:textColorHint="@color/main_grey"
-                android:textAlignment="viewStart"
                 android:textSize="17sp" />
         </com.google.android.material.textfield.TextInputLayout>
 

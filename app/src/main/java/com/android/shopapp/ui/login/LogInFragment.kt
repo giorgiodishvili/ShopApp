@@ -25,7 +25,7 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
 
     override fun start(inflater: LayoutInflater, container: ViewGroup?) {
         binding.emailITXT.isEndIconVisible = false
-        checkUserSession()
+        checkForRememberMeUser()
         setSpannedString()
         init()
     }
@@ -33,9 +33,8 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
     @Inject
     private lateinit var userAccount: UserAccount
 
-    private fun checkUserSession(){
-        val session = userAccount.hasSession()
-        if (session){
+    private fun checkForRememberMeUser(){
+        if (userAccount.hasSession()){
             findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
         }
     }
@@ -85,10 +84,10 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
         }
     }
 
-    private fun showDialog(desc: String){
+    private fun showDialog(message: String){
         val dialog = Dialog(requireContext())
         dialog.setUp(R.layout.dialog_layout)
-        dialog.findViewById<TextView>(R.id.description).text = desc
+        dialog.findViewById<TextView>(R.id.description).text = message
         dialog.findViewById<Button>(R.id.close).setOnClickListener {
             dialog.cancel()
         }
@@ -105,11 +104,9 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
                     findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
                 }
                 Resource.Status.ERROR -> {
-                    Toast.makeText(requireContext(), "${it.message}", Toast.LENGTH_SHORT).show()
+                    showDialog(it.message!!)
                 }
-                Resource.Status.LOADING -> {
-                    binding.progressBar.hide()
-                }
+                else -> {}
             }
         })
     }

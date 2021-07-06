@@ -21,7 +21,7 @@ class LogInViewModel @Inject constructor(private val logInRepo: LogInRepository,
     val res: LiveData<Resource<LogInResponse>>
         get() = _res
 
-    suspend fun login(login: LogInRequest) =
+    fun login(login: LogInRequest) =
         viewModelScope.launch {
             _res.postValue(Resource.loading())
             logInRepo.logIn(login).let {

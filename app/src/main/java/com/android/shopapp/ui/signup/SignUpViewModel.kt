@@ -19,7 +19,7 @@ class SignUpViewModel @Inject constructor(private val signupRepo: SignUpReposito
     val signUpData: LiveData<Resource<RegisterResponse>>
         get() = _signUpLiveData
 
-    suspend fun login(register: RegisterRequest) =
+    fun register(register: RegisterRequest) =
         viewModelScope.launch {
             _signUpLiveData.postValue(Resource.loading())
             signupRepo.signUp(register).let {

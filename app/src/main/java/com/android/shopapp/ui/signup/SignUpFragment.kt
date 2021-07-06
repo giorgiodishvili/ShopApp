@@ -16,31 +16,31 @@ import com.android.shopapp.databinding.SignUpFragmentBinding
 import com.android.shopapp.entity.register.RegisterRequest
 import com.android.shopapp.extensions.*
 import com.android.shopapp.network.Resource
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class SignUpFragment : BaseFragment<SignUpFragmentBinding>(SignUpFragmentBinding::inflate) {
 
     private val signUpViewModel: SignUpViewModel by viewModels()
 
     override fun start(inflater: LayoutInflater, container: ViewGroup?) {
+        binding.signUpBtn.signInBtn.setText(R.string.sign_up)
         binding.emailITXT.isEndIconVisible = false
         setSpannedString()
         init()
     }
-
-    @Inject
-    private lateinit var userAccount: UserAccount
 
     private fun setSpannedString() {
 
         //TODO ADD COLOR
         binding.signIn.setSpannedString(
             arrayOf(
-                "New user? ",
-                "Sign up",
+                "Aleady Have Account? ",
+                "Sign in ",
                 "here"
             ),
-            arrayOf()
+            arrayOf(R.color.black,R.color.main_grey,R.color.black)
         )
     }
     private fun init(){
@@ -63,11 +63,13 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding>(SignUpFragmentBinding
 
     private fun passedInfoCheck(){
         val register = RegisterRequest(binding.emailET.text?.trim().toString(),
-            binding.emailET.text?.trim().toString(),binding.fullNameET.text?.trim().toString())
-        if (register.email.isNotEmpty() && register.password.isNotEmpty() && register.fullName.isNotEmpty()){
+            binding.passwordET.text?.trim().toString(),binding.fullNameET.text?.trim().toString())
+        if (register.email.isNotEmpty() && register.password.isNotEmpty() && !binding.confirmPasswordET.text.isNullOrBlank() && register.fullName.isNotEmpty()){
             if (register.email.isEmail()){
-                signUpViewModel.register(register)
-                observe()
+                if(register.password == binding.confirmPasswordET.text.toString().trim()){
+                    signUpViewModel.register(register)
+                    observe()
+                }
             }else{
                 showDialog("Email Format is Incorrect")
             }

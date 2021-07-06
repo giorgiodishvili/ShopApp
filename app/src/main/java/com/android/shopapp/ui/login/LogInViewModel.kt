@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LogInViewModel @Inject constructor(private val logInRepo: LogInRepository, private val userData: UserAccount) : ViewModel() {
+class LogInViewModel @Inject constructor(private val logInRepo: LogInRepository,  val userData: UserAccount) : ViewModel() {
 
     private val _res = MutableLiveData<Resource<LogInResponse>>()
 
@@ -28,7 +28,7 @@ class LogInViewModel @Inject constructor(private val logInRepo: LogInRepository,
                 if (it.isSuccessful) {
                     _res.postValue(Resource.success(it.body()!!))
                 } else {
-                    _res.postValue(Resource.error(it.errorBody().toString()))
+                    _res.postValue(Resource.error(it.message().toString()))
                 }
             }
         }

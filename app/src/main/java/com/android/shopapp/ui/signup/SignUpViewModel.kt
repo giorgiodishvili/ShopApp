@@ -26,7 +26,7 @@ class SignUpViewModel @Inject constructor(private val signupRepo: SignUpReposito
                 if (it.isSuccessful) {
                     _signUpLiveData.postValue(Resource.success(it.body()!!))
                 } else {
-                    _signUpLiveData.postValue(Resource.error(it.errorBody().toString()))
+                    _signUpLiveData.postValue(Resource.error(it.message().toString()))
                 }
             }
         }

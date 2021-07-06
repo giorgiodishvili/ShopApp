@@ -6,6 +6,8 @@ import com.android.shopapp.app.App_HiltComponents
 import com.android.shopapp.network.ApiService
 import com.android.shopapp.repository.LogInRepository
 import com.android.shopapp.repository.LogInRepositoryImpl
+import com.android.shopapp.repository.SignUpRepository
+import com.android.shopapp.repository.SignUpRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -53,5 +55,9 @@ object AppModule{
     @Provides
     @Singleton
     fun provideLoginRepository(loginRepo: LogInRepositoryImpl): LogInRepository = loginRepo
+
+    @Provides
+    @Singleton
+    fun provideSignUpRepository(signupRepo: SignUpRepositoryImpl): SignUpRepository = signupRepo
 
 }

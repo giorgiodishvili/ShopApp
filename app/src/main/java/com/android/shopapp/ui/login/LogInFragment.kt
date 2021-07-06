@@ -1,11 +1,11 @@
 package com.android.shopapp.ui.login
 
 import android.app.Dialog
+import android.util.Log.i
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -25,13 +25,14 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
 
     override fun start(inflater: LayoutInflater, container: ViewGroup?) {
         binding.emailITXT.isEndIconVisible = false
+        binding.signInBtn.signInBtn.setText(R.string.sign_in)
         checkForRememberMeUser()
         setSpannedString()
         init()
     }
 
     @Inject
-    private lateinit var userAccount: UserAccount
+    public lateinit var userAccount: UserAccount
 
     private fun checkForRememberMeUser(){
         if (userAccount.hasSession()){
@@ -45,10 +46,10 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
         binding.signUp.setSpannedString(
             arrayOf(
                 "New user? ",
-                "Sign up",
+                "Sign up ",
                 "here"
             ),
-            arrayOf()
+            arrayOf(R.color.black,R.color.main_grey,R.color.black)
         )
     }
     private fun init(){
@@ -71,7 +72,7 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
 
     private fun passedInfoCheck(){
         val login = LogInRequest(binding.emailET.text?.trim().toString(),
-            binding.emailET.text?.trim().toString())
+            binding.passwordET.text?.trim().toString())
         if (login.email.isNotEmpty() && login.password.isNotEmpty()){
             if (login.email.isEmail()){
                 logInViewModel.login(login)
@@ -104,7 +105,8 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
                     findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
                 }
                 Resource.Status.ERROR -> {
-                    showDialog(it.message!!)
+                    i("shjowDialog", it.toString())
+//                    showDialog(it.message!!)
                 }
                 else -> {}
             }

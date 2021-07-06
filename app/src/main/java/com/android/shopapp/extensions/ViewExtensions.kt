@@ -23,9 +23,9 @@ fun View.hideIf(show: Boolean){
 }
 
 fun Dialog.setUp(dialogView: Int){
-    setContentView(dialogView)
-    window!!.setBackgroundDrawableResource(android.R.color.transparent)
-    window!!.requestFeature(Window.FEATURE_NO_TITLE)
-    window!!.attributes.width = WindowManager.LayoutParams.MATCH_PARENT
-    window!!.attributes.height = WindowManager.LayoutParams.WRAP_CONTENT
+//    setContentView(dialogView)
+//    window!!.setBackgroundDrawableResource(android.R.color.transparent)
+//    window!!.requestFeature(Window.FEATURE_NO_TITLE)
+//    window!!.attributes.width = WindowManager.LayoutParams.MATCH_PARENT
+//    window!!.attributes.height = WindowManager.LayoutParams.WRAP_CONTENT
 }

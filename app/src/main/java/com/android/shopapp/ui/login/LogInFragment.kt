@@ -26,19 +26,13 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
     override fun start(inflater: LayoutInflater, container: ViewGroup?) {
         binding.emailITXT.isEndIconVisible = false
         binding.signInBtn.signInBtn.setText(R.string.sign_in)
-        checkForRememberMeUser()
         setSpannedString()
         init()
     }
 
-    @Inject
-    public lateinit var userAccount: UserAccount
 
-    private fun checkForRememberMeUser(){
-        if (userAccount.hasSession()){
-            findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
-        }
-    }
+
+
 
     private fun setSpannedString() {
 

@@ -36,11 +36,10 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding>(SignUpFragmentBinding
         //TODO ADD COLOR
         binding.signIn.setSpannedString(
             arrayOf(
-                "Aleady Have Account? ",
-                "Sign in ",
-                "here"
+                "Already a member? ",
+                "Sign in"
             ),
-            arrayOf(R.color.black,R.color.main_grey,R.color.black)
+            arrayOf(R.color.black,R.color.main_grey)
         )
     }
     private fun init(){

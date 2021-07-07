@@ -1,10 +1,9 @@
 package com.android.shopapp.ui.splash
 
-import android.animation.ValueAnimator
+import android.animation.Animator
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.airbnb.lottie.LottieAnimationView
 import com.android.football.base.BaseFragment
 import com.android.shopapp.R
 import com.android.shopapp.currentuser.UserAccount
@@ -23,7 +22,24 @@ class SplashScreenFragment :
 
     override fun start(inflater: LayoutInflater, container: ViewGroup?) {
 
-//        checkForRememberMeUser()
+        binding.lottieMain.addAnimatorListener(object : Animator.AnimatorListener {
+            override fun onAnimationStart(animation: Animator?) {
+            }
+
+            override fun onAnimationEnd(animation: Animator) {
+                try {
+                    checkForRememberMeUser()
+                } catch (ex: Exception) {
+                    ex.toString()
+                }
+            }
+
+            override fun onAnimationCancel(animation: Animator?) {
+            }
+
+            override fun onAnimationRepeat(animation: Animator?) {
+            }
+        })
     }
 
 

@@ -5,4 +5,8 @@
     <string name="new_user">New User?</string>
     <string name="here">here</string>
     <string name="sign_up">Sign up</string>
+    <string name="home_button">Home</string>
+    <string name="favourites_button">Favourites</string>
+    <string name="my_wallet">My Wallet</string>
+    <string name="track_orders">Track Orders</string>
 </resources>

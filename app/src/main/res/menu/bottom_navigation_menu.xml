@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        android:icon="@drawable/home"
+        android:title="@string/home_button"/>
+    <item
+        android:id="@+id/favourites"
+        android:enabled="true"
+        android:icon="@drawable/ic_favorite"
+        android:title="@string/favourites_button"/>
+
+    <item
+        android:id="@+id/my_wallet"
+        android:enabled="true"
+        android:icon="@drawable/ic_wallet"
+        android:title="@string/my_wallet"/>
+
+    <item
+        android:id="@+id/track_orders"
+        android:enabled="true"
+        android:icon="@drawable/ic_wallet"
+        android:title="@string/track_orders"/>
+</menu>

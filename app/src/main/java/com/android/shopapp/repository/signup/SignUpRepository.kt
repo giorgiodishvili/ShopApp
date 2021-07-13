@@ -1,4 +1,4 @@
-package com.android.shopapp.repository
+package com.android.shopapp.repository.signup
 
 import com.android.shopapp.entity.login.LogInRequest
 import com.android.shopapp.entity.login.LogInResponse

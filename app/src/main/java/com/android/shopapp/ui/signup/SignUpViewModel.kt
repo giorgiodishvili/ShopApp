@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.android.shopapp.entity.register.RegisterRequest
 import com.android.shopapp.entity.register.RegisterResponse
 import com.android.shopapp.network.Resource
-import com.android.shopapp.repository.SignUpRepository
+import com.android.shopapp.repository.signup.SignUpRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

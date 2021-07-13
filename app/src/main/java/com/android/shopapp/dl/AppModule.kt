@@ -1,13 +1,13 @@
 package com.android.shopapp.dl
 
-import android.provider.SyncStateContract
 import com.android.shopapp.BuildConfig
-import com.android.shopapp.app.App_HiltComponents
 import com.android.shopapp.network.ApiService
-import com.android.shopapp.repository.LogInRepository
-import com.android.shopapp.repository.LogInRepositoryImpl
-import com.android.shopapp.repository.SignUpRepository
-import com.android.shopapp.repository.SignUpRepositoryImpl
+import com.android.shopapp.repository.login.LogInRepository
+import com.android.shopapp.repository.login.LogInRepositoryImpl
+import com.android.shopapp.repository.posts.PostsRepository
+import com.android.shopapp.repository.posts.PostsRepositoryImpl
+import com.android.shopapp.repository.signup.SignUpRepository
+import com.android.shopapp.repository.signup.SignUpRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -59,5 +59,10 @@ object AppModule{
     @Provides
     @Singleton
     fun provideSignUpRepository(signupRepo: SignUpRepositoryImpl): SignUpRepository = signupRepo
+
+
+    @Provides
+    @Singleton
+    fun providesPostsRepo(postsRepo: PostsRepositoryImpl): PostsRepository = postsRepo
 
 }

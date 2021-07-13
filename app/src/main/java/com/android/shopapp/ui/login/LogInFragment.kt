@@ -31,9 +31,6 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
     }
 
 
-
-
-
     private fun setSpannedString() {
 
         //TODO ADD COLOR

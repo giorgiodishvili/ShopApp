@@ -27,4 +27,23 @@
         android:layout_gravity="bottom"
         app:menu="@menu/bottom_navigation_menu" />
 
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/drawer"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+
+        android:fitsSystemWindows="true">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/drawerRecycler"
+            android:paddingTop="140dp"
+            android:clipToPadding="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.google.android.material.navigation.NavigationView>
+
+
 </LinearLayout>

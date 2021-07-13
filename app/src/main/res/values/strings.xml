@@ -8,5 +8,8 @@
     <string name="home_button">Home</string>
     <string name="favourites_button">Favourites</string>
     <string name="my_wallet">My Wallet</string>
-    <string name="track_orders">Track Orders</string>
+    <string name="my_profile">My Profile</string>
+    <string name="my_posts">My Posts</string>
+    <string name="about">About</string>
+    <string name="my_cart">My Cart</string>
 </resources>

@@ -8,13 +8,13 @@ import com.android.shopapp.currentuser.UserAccount
 import com.android.shopapp.entity.login.LogInRequest
 import com.android.shopapp.entity.login.LogInResponse
 import com.android.shopapp.network.Resource
-import com.android.shopapp.repository.LogInRepository
+import com.android.shopapp.repository.login.LogInRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LogInViewModel @Inject constructor(private val logInRepo: LogInRepository,  val userData: UserAccount) : ViewModel() {
+class LogInViewModel @Inject constructor(private val logInRepo: LogInRepository, val userData: UserAccount) : ViewModel() {
 
     private val _res = MutableLiveData<Resource<LogInResponse>>()
 

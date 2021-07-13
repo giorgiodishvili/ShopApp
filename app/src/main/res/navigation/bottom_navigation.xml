@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/bottom_navigation">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_navigation"
+    app:startDestination="@id/wallFragment">
 
+    <fragment
+        android:id="@+id/wallFragment"
+        android:name="com.android.shopapp.ui.wall.WallFragment"
+        android:label="wall_fragment"
+        tools:layout="@layout/wall_fragment" />
+    <fragment
+        android:id="@+id/favouriteFragment"
+        android:name="com.android.shopapp.ui.favourite.FavouriteFragment"
+        android:label="favourite_fragment"
+        tools:layout="@layout/favourite_fragment" />
+    <fragment
+        android:id="@+id/myWalletFragment"
+        android:name="com.android.shopapp.ui.wallet.MyWalletFragment"
+        android:label="my_wallet_fragment"
+        tools:layout="@layout/my_wallet_fragment" />
 </navigation>

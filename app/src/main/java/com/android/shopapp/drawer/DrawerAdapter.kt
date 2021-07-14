@@ -24,12 +24,10 @@ class DrawerAdapter(private val items: List<DrawerItem>): RecyclerView.Adapter<D
 
     inner class ItemViewHolder(private val binding: DrawerItemLayoutBinding): RecyclerView.ViewHolder(binding.root){
         private lateinit var item: DrawerItem
+
         fun onBind(){
-
             item = items[adapterPosition]
-
             binding.item.text = item.name
-
             binding.item.setOnClickListener {
                 drawerItemOnClickListener.invoke(item.id)
             }

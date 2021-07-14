@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.signup.SignUpFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,11 +15,10 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="60dp"
-            app:srcCompat="@mipmap/ic_logo_foreground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            />
+            app:srcCompat="@mipmap/ic_logo_foreground" />
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -40,8 +39,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLines="1"
-                android:textColorHint="@color/main_grey"
                 android:textAlignment="viewStart"
+                android:textColorHint="@color/main_grey"
                 android:textSize="17sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,8 +62,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="text"
                 android:maxLines="1"
-                android:textColorHint="@color/main_grey"
                 android:textAlignment="viewStart"
+                android:textColorHint="@color/main_grey"
                 android:textSize="17sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -86,8 +85,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:textColorHint="@color/main_grey"
                 android:textAlignment="viewStart"
+                android:textColorHint="@color/main_grey"
                 android:textSize="17sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,8 +109,8 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:maxLines="1"
-                android:textColorHint="@color/main_grey"
                 android:textAlignment="viewStart"
+                android:textColorHint="@color/main_grey"
                 android:textSize="17sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,21 +118,20 @@
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/confirmPassITXT"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:visibility="invisible"
-            android:indeterminateTint="@color/main_grey"
             android:layout_marginTop="20dp"
-            />
+            android:indeterminateTint="@color/main_grey"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirmPassITXT" />
 
 
         <include
-            layout="@layout/sign_in_button"
             android:id="@+id/signUpBtn"
+            layout="@layout/sign_in_button"
             android:layout_width="match_parent"
-            android:layout_marginTop="40dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
             android:text="@string/sign_up"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -142,15 +140,13 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/signIn"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:textSize="14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/signUpBtn" />
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

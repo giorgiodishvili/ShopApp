@@ -7,9 +7,11 @@ import retrofit2.Response
 import javax.inject.Inject
 
 
-class LogInRepositoryImpl @Inject constructor(private val apiService: ApiService): LogInRepository {
+class LogInRepositoryImpl @Inject constructor(private val apiService: ApiService) :
+    LogInRepository {
 
 
-    override suspend fun logIn(login: LogInRequest): Response<LogInResponse>  = apiService.login(login)
+    override suspend fun logIn(login: LogInRequest): Response<LogInResponse> =
+        apiService.login(login)
 
 }

@@ -30,12 +30,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:hint="Email address: "
-            app:endIconMode="custom"
-            app:endIconDrawable="@drawable/check_email"
-            app:endIconTintMode="src_atop"
-            app:endIconTint="@android:color/transparent"
             app:boxBackgroundColor="@android:color/transparent"
             app:boxStrokeColor="@color/main_grey"
+            app:endIconDrawable="@drawable/check_email"
+            app:endIconMode="custom"
+            app:endIconTint="@android:color/transparent"
+            app:endIconTintMode="src_atop"
             app:hintTextColor="@color/main_grey"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,11 +48,10 @@
                 android:maxLines="1"
                 android:paddingStart="0dp"
                 android:paddingEnd="0dp"
+                android:textAlignment="viewStart"
                 android:textColorHint="@color/main_grey"
                 android:textSize="17sp"
-                android:textAlignment="viewStart"
-                tools:text="giorgi.odishvili"
-                />
+                tools:text="giorgi.odishvili" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -94,18 +93,17 @@
         <ProgressBar
             android:id="@+id/progressBar"
             android:layout_width="wrap_content"
-            android:visibility="invisible"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/rememberMe"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:indeterminateTint="@color/main_grey"
             android:layout_marginTop="20dp"
-            />
+            android:indeterminateTint="@color/main_grey"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rememberMe" />
 
         <include
-            layout="@layout/sign_in_button"
             android:id="@+id/signInBtn"
+            layout="@layout/sign_in_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
@@ -130,10 +128,10 @@
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/signUp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:textSize="14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/forgotPassBtn" />

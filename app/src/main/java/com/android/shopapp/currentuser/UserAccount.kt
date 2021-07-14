@@ -7,7 +7,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class UserAccount @Inject constructor(@ApplicationContext context: Context){
+class UserAccount @Inject constructor(@ApplicationContext context: Context) {
 
     companion object {
         const val HAS_SESSION = "HAS_SESSION"
@@ -27,7 +27,7 @@ class UserAccount @Inject constructor(@ApplicationContext context: Context){
         sharedPreference.edit().putBoolean(HAS_SESSION, session).apply()
     }
 
-    fun saveToken(token: String){
+    fun saveToken(token: String) {
         sharedPreference.edit().putString(TOKEN, token).apply()
     }
 

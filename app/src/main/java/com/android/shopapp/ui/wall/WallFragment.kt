@@ -1,34 +1,51 @@
 package com.android.shopapp.ui.wall
 
-import androidx.lifecycle.ViewModelProvider
-import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import com.android.shopapp.R
+import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.android.football.base.BaseFragment
+import com.android.shopapp.databinding.WallFragmentBinding
+import com.android.shopapp.drawer.PostRecyclerViewAdapter
+import com.android.shopapp.entity.Post
+import com.android.shopapp.network.Resource
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class WallFragment : Fragment() {
+class WallFragment : BaseFragment<WallFragmentBinding>(WallFragmentBinding::inflate) {
+    private val wallViewModel: WallViewModel by viewModels()
+    private lateinit var adapter: PostRecyclerViewAdapter
 
-    companion object {
-        fun newInstance() = WallFragment()
+
+    override fun start(inflater: LayoutInflater, container: ViewGroup?) {
+        wallViewModel.getPosts()
+        observe()
     }
 
-    private lateinit var viewModel: WallViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.wall_fragment, container, false)
+    private fun observe() {
+        wallViewModel.postLiveData.observe(viewLifecycleOwner, { resource ->
+            when (resource.status) {
+                Resource.Status.SUCCESS -> {
+                    initRecycler(resource.data)
+                }
+                Resource.Status.ERROR -> {
+                    Log.i("shjowDialog", resource.toString())
+                }
+                else -> {
+                }
+            }
+        })
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(WallViewModel::class.java)
-        // TODO: Use the ViewModel
+    private fun initRecycler(data: List<Post>?) {
+        adapter = PostRecyclerViewAdapter(data!!)
+        binding.wallPostsRV.adapter = adapter
+        binding.wallPostsRV.layoutManager = LinearLayoutManager(
+            requireContext(),
+            LinearLayoutManager.VERTICAL, false
+        )
     }
+
 
 }

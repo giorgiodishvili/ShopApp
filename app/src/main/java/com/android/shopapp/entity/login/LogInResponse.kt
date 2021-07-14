@@ -5,4 +5,5 @@ import com.google.gson.annotations.SerializedName
 data class LogInResponse(
     val token: String,
     @SerializedName("user_id")
-                         private val userId: Int)
+    private val userId: Int
+)

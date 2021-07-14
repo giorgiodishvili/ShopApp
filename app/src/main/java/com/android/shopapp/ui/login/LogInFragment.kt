@@ -11,13 +11,14 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.android.football.base.BaseFragment
 import com.android.shopapp.R
-import com.android.shopapp.currentuser.UserAccount
 import com.android.shopapp.databinding.LogInFragmentBinding
 import com.android.shopapp.entity.login.LogInRequest
-import com.android.shopapp.extensions.*
+import com.android.shopapp.extensions.hideIf
+import com.android.shopapp.extensions.isEmail
+import com.android.shopapp.extensions.setSpannedString
+import com.android.shopapp.extensions.setUp
 import com.android.shopapp.network.Resource
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::inflate) {
@@ -40,10 +41,11 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
                 "Sign up ",
                 "here"
             ),
-            arrayOf(R.color.black,R.color.main_grey,R.color.black)
+            arrayOf(R.color.black, R.color.main_grey, R.color.black)
         )
     }
-    private fun init(){
+
+    private fun init() {
         binding.signInBtn.signInBtn.setOnClickListener {
             passedInfoCheck()
         }
@@ -57,26 +59,28 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
         }
     }
 
-    private fun emailValidator(text: String){
+    private fun emailValidator(text: String) {
         binding.emailITXT.isEndIconVisible = text.isEmail()
     }
 
-    private fun passedInfoCheck(){
-        val login = LogInRequest(binding.emailET.text?.trim().toString(),
-            binding.passwordET.text?.trim().toString())
-        if (login.email.isNotEmpty() && login.password.isNotEmpty()){
-            if (login.email.isEmail()){
+    private fun passedInfoCheck() {
+        val login = LogInRequest(
+            binding.emailET.text?.trim().toString(),
+            binding.passwordET.text?.trim().toString()
+        )
+        if (login.email.isNotEmpty() && login.password.isNotEmpty()) {
+            if (login.email.isEmail()) {
                 logInViewModel.login(login)
                 observe()
-            }else{
+            } else {
                 showDialog("Email Format is Incorrect")
             }
-        }else{
+        } else {
             showDialog("Please Fill in All the fields")
         }
     }
 
-    private fun showDialog(message: String){
+    private fun showDialog(message: String) {
         val dialog = Dialog(requireContext())
         dialog.setUp(R.layout.dialog_layout)
         dialog.findViewById<TextView>(R.id.description).text = message
@@ -86,10 +90,10 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
         dialog.show()
     }
 
-    private fun observe(){
+    private fun observe() {
         logInViewModel.res.observe(viewLifecycleOwner, {
             binding.progressBar.hideIf(it.status == Resource.Status.LOADING)
-            when(it.status){
+            when (it.status) {
                 Resource.Status.SUCCESS -> {
                     logInViewModel.saveSession(binding.rememberMe.isChecked)
                     logInViewModel.saveToken(it.data!!.token)
@@ -99,7 +103,8 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
                     i("shjowDialog", it.toString())
 //                    showDialog(it.message!!)
                 }
-                else -> {}
+                else -> {
+                }
             }
         })
     }

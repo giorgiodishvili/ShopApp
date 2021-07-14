@@ -2,27 +2,25 @@ package com.android.shopapp.extensions
 
 import android.app.Dialog
 import android.view.View
-import android.view.Window
-import android.view.WindowManager
 
 
-fun View.hide(){
+fun View.hide() {
     this.visibility = View.INVISIBLE
 }
 
-fun View.show(){
+fun View.show() {
     this.visibility = View.VISIBLE
 }
 
-fun View.hideIf(show: Boolean){
-    if (show){
+fun View.hideIf(show: Boolean) {
+    if (show) {
         show()
-    }else{
+    } else {
         hide()
     }
 }
 
-fun Dialog.setUp(dialogView: Int){
+fun Dialog.setUp(dialogView: Int) {
 //    setContentView(dialogView)
 //    window!!.setBackgroundDrawableResource(android.R.color.transparent)
 //    window!!.requestFeature(Window.FEATURE_NO_TITLE)

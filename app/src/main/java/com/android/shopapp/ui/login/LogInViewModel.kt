@@ -14,7 +14,10 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class LogInViewModel @Inject constructor(private val logInRepo: LogInRepository, val userData: UserAccount) : ViewModel() {
+class LogInViewModel @Inject constructor(
+    private val logInRepo: LogInRepository,
+    val userData: UserAccount
+) : ViewModel() {
 
     private val _res = MutableLiveData<Resource<LogInResponse>>()
 
@@ -33,11 +36,11 @@ class LogInViewModel @Inject constructor(private val logInRepo: LogInRepository,
             }
         }
 
-    fun saveSession(inSession: Boolean){
+    fun saveSession(inSession: Boolean) {
         userData.saveSession(inSession)
     }
 
-    fun saveToken(token: String){
+    fun saveToken(token: String) {
         userData.saveToken(token)
     }
 }

@@ -1,7 +1,5 @@
 package com.android.shopapp.repository.signup
 
-import com.android.shopapp.entity.login.LogInRequest
-import com.android.shopapp.entity.login.LogInResponse
 import com.android.shopapp.entity.register.RegisterRequest
 import com.android.shopapp.entity.register.RegisterResponse
 import retrofit2.Response

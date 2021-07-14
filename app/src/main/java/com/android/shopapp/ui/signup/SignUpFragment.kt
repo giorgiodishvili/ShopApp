@@ -5,19 +5,19 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.android.football.base.BaseFragment
 import com.android.shopapp.R
-import com.android.shopapp.currentuser.UserAccount
 import com.android.shopapp.databinding.SignUpFragmentBinding
 import com.android.shopapp.entity.register.RegisterRequest
-import com.android.shopapp.extensions.*
+import com.android.shopapp.extensions.hideIf
+import com.android.shopapp.extensions.isEmail
+import com.android.shopapp.extensions.setSpannedString
+import com.android.shopapp.extensions.setUp
 import com.android.shopapp.network.Resource
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class SignUpFragment : BaseFragment<SignUpFragmentBinding>(SignUpFragmentBinding::inflate) {
@@ -39,10 +39,11 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding>(SignUpFragmentBinding
                 "Already a member? ",
                 "Sign in"
             ),
-            arrayOf(R.color.black,R.color.main_grey)
+            arrayOf(R.color.black, R.color.main_grey)
         )
     }
-    private fun init(){
+
+    private fun init() {
         binding.signUpBtn.signInBtn.setOnClickListener {
             passedInfoCheck()
         }
@@ -56,28 +57,30 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding>(SignUpFragmentBinding
         }
     }
 
-    private fun emailValidator(text: String){
+    private fun emailValidator(text: String) {
         binding.emailITXT.isEndIconVisible = text.isEmail()
     }
 
-    private fun passedInfoCheck(){
-        val register = RegisterRequest(binding.emailET.text?.trim().toString(),
-            binding.passwordET.text?.trim().toString(),binding.fullNameET.text?.trim().toString())
-        if (register.email.isNotEmpty() && register.password.isNotEmpty() && !binding.confirmPasswordET.text.isNullOrBlank() && register.fullName.isNotEmpty()){
-            if (register.email.isEmail()){
-                if(register.password == binding.confirmPasswordET.text.toString().trim()){
+    private fun passedInfoCheck() {
+        val register = RegisterRequest(
+            binding.emailET.text?.trim().toString(),
+            binding.passwordET.text?.trim().toString(), binding.fullNameET.text?.trim().toString()
+        )
+        if (register.email.isNotEmpty() && register.password.isNotEmpty() && !binding.confirmPasswordET.text.isNullOrBlank() && register.fullName.isNotEmpty()) {
+            if (register.email.isEmail()) {
+                if (register.password == binding.confirmPasswordET.text.toString().trim()) {
                     signUpViewModel.register(register)
                     observe()
                 }
-            }else{
+            } else {
                 showDialog("Email Format is Incorrect")
             }
-        }else{
+        } else {
             showDialog("Please Fill in All the fields")
         }
     }
 
-    private fun showDialog(message: String){
+    private fun showDialog(message: String) {
         val dialog = Dialog(requireContext())
         dialog.setUp(R.layout.dialog_layout)
         dialog.findViewById<TextView>(R.id.description).text = message
@@ -87,17 +90,18 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding>(SignUpFragmentBinding
         dialog.show()
     }
 
-    private fun observe(){
+    private fun observe() {
         signUpViewModel.signUpData.observe(viewLifecycleOwner, {
             binding.progressBar.hideIf(it.status == Resource.Status.LOADING)
-            when(it.status){
+            when (it.status) {
                 Resource.Status.SUCCESS -> {
                     findNavController().navigate(R.id.action_signUpFragment_to_logInFragment)
                 }
                 Resource.Status.ERROR -> {
                     showDialog(it.message!!)
                 }
-                else -> {}
+                else -> {
+                }
             }
         })
     }

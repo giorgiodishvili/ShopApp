@@ -46,7 +46,7 @@ class SplashScreenFragment :
     private fun checkForRememberMeUser() {
         if (userAccount.hasSession()) {
             findNavController().navigate(R.id.action_splashScreenFragment_to_homeFragment)
-        }else{
+        } else {
             findNavController().navigate(R.id.action_splashScreenFragment_to_logInFragment)
         }
     }

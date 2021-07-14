@@ -9,7 +9,7 @@
         android:id="@+id/logInFragment"
         android:name="com.android.shopapp.ui.login.LogInFragment"
         android:label="log_in_fragment"
-        tools:layout="@layout/log_in_fragment" >
+        tools:layout="@layout/log_in_fragment">
         <action
             android:id="@+id/action_logInFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -26,7 +26,7 @@
         android:id="@+id/signUpFragment"
         android:name="com.android.shopapp.ui.signup.SignUpFragment"
         android:label="sign_up_fragment"
-        tools:layout="@layout/sign_up_fragment" >
+        tools:layout="@layout/sign_up_fragment">
         <action
             android:id="@+id/action_signUpFragment_to_logInFragment"
             app:destination="@id/logInFragment" />
@@ -35,7 +35,7 @@
         android:id="@+id/splashScreeFragment"
         android:name="com.android.shopapp.ui.splash.SplashScreenFragment"
         android:label="splash_screenFragment_fragment"
-        tools:layout="@layout/splash_screen_fragment" >
+        tools:layout="@layout/splash_screen_fragment">
         <action
             android:id="@+id/action_splashScreenFragment_to_logInFragment"
             app:destination="@id/logInFragment" />

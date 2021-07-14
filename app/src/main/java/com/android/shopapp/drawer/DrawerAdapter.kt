@@ -8,7 +8,9 @@ import com.android.shopapp.entity.DrawerItem
 
 
 typealias drawerItemOnClickListener = (actionId: Int) -> Unit
-class DrawerAdapter(private val items: List<DrawerItem>): RecyclerView.Adapter<DrawerAdapter.ItemViewHolder>() {
+
+class DrawerAdapter(private val items: List<DrawerItem>) :
+    RecyclerView.Adapter<DrawerAdapter.ItemViewHolder>() {
 
     lateinit var drawerItemOnClickListener: drawerItemOnClickListener
 
@@ -22,10 +24,11 @@ class DrawerAdapter(private val items: List<DrawerItem>): RecyclerView.Adapter<D
 
     override fun getItemCount() = items.size
 
-    inner class ItemViewHolder(private val binding: DrawerItemLayoutBinding): RecyclerView.ViewHolder(binding.root){
+    inner class ItemViewHolder(private val binding: DrawerItemLayoutBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         private lateinit var item: DrawerItem
 
-        fun onBind(){
+        fun onBind() {
             item = items[adapterPosition]
             binding.item.text = item.name
             binding.item.setOnClickListener {

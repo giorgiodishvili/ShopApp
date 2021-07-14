@@ -6,7 +6,9 @@ import com.android.shopapp.entity.login.LogInResponse
 import com.android.shopapp.entity.register.RegisterRequest
 import com.android.shopapp.entity.register.RegisterResponse
 import retrofit2.Response
-import retrofit2.http.*
+import retrofit2.http.Body
+import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface ApiService {
 

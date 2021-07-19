@@ -23,11 +23,11 @@
         android:id="@+id/storage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:padding="8dp"
-        android:text="Storage" />
+        android:text="Storage"
+        tools:ignore="MissingConstraints" />
 
     <!--Button to request camera permission-->
     <Button
@@ -38,5 +38,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
         android:padding="8dp"
-        android:text="Camera" />
+        android:text="Camera"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>

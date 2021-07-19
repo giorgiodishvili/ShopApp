@@ -2,6 +2,8 @@ package com.android.shopapp.dl
 
 import com.android.shopapp.BuildConfig
 import com.android.shopapp.network.ApiService
+import com.android.shopapp.repository.completeprofile.CompleteProfileRepository
+import com.android.shopapp.repository.completeprofile.CompleteProfileRepositoryImpl
 import com.android.shopapp.repository.login.LogInRepository
 import com.android.shopapp.repository.login.LogInRepositoryImpl
 import com.android.shopapp.repository.posts.PostsRepository
@@ -24,7 +26,7 @@ import javax.inject.Singleton
 object AppModule {
 
     @Provides
-    fun provideBaseUrl() = "https://ktorhighsteaks.herokuapp.com"
+    fun provideBaseUrl() = "https://ktorhighsteaks.herokuapp.com/"
 
     @Singleton
     @Provides
@@ -64,5 +66,10 @@ object AppModule {
     @Provides
     @Singleton
     fun providesPostsRepo(postsRepo: PostsRepositoryImpl): PostsRepository = postsRepo
+
+
+    @Provides
+    @Singleton
+    fun completeProfileRepo(profileRepo: CompleteProfileRepositoryImpl): CompleteProfileRepository = profileRepo
 
 }

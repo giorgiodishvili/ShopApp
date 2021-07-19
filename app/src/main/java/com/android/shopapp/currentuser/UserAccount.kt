@@ -12,6 +12,7 @@ class UserAccount @Inject constructor(@ApplicationContext context: Context) {
     companion object {
         const val HAS_SESSION = "HAS_SESSION"
         const val TOKEN = "TOKEN"
+        const val USER_ID = "USER_ID"
     }
 
     private val sharedPreference: SharedPreferences by lazy {
@@ -32,4 +33,8 @@ class UserAccount @Inject constructor(@ApplicationContext context: Context) {
     }
 
     fun token() = sharedPreference.getString(TOKEN, "")
+
+    fun saveUserId(userId:Int) = sharedPreference.edit().putInt(USER_ID,userId).apply()
+
+    fun getUserId() = sharedPreference.getInt(USER_ID, -1)
 }

@@ -9,5 +9,5 @@ data class Post(
     val price_type: String,
     val tags: String,
     val title: String,
-    val urls: List<String>
+    val urls: List<ImageUrl>
 )

@@ -20,4 +20,11 @@
         android:name="com.android.shopapp.ui.wallet.MyWalletFragment"
         android:label="my_wallet_fragment"
         tools:layout="@layout/my_wallet_fragment" />
+    <fragment
+        android:id="@+id/trackOrdersFragment"
+        android:name="com.android.shopapp.ui.trackorder.TrackOrdersFragment"
+        android:label="track_orders_fragment"
+        tools:layout="@layout/track_orders_fragment" />
+
+
 </navigation>

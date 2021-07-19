@@ -12,4 +12,5 @@
     <string name="my_posts">My Posts</string>
     <string name="about">About</string>
     <string name="my_cart">My Cart</string>
+    <string name="track_orders">Track Orders</string>
 </resources>

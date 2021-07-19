@@ -14,12 +14,12 @@
     <item
         android:id="@+id/my_wallet"
         android:enabled="true"
-        android:icon="@drawable/ic_wallet"
+        android:icon="@drawable/ic_favorite"
         android:title="@string/my_wallet" />
 
     <item
         android:id="@+id/track_orders"
         android:enabled="true"
-        android:icon="@drawable/ic_wallet"
+        android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/track_orders" />
 </menu>

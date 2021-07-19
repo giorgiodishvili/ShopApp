@@ -2,14 +2,19 @@ package com.android.shopapp.ui.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.setupWithNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.football.base.BaseFragment
 import com.android.shopapp.R
 import com.android.shopapp.databinding.HomeFragmentBinding
 import com.android.shopapp.drawer.DrawerAdapter
 import com.android.shopapp.entity.DrawerItem
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::inflate) {
 
@@ -17,7 +22,6 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
 
 
     override fun start(inflater: LayoutInflater, container: ViewGroup?) {
-        initBottomNav()
         drawerAdapter = DrawerAdapter(
             listOf(
                 DrawerItem(
@@ -37,10 +41,9 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
         binding.drawerRecycler.adapter = drawerAdapter
         binding.drawerRecycler.layoutManager = LinearLayoutManager(requireContext())
         drawerAdapter.drawerItemOnClickListener = {
-//            findNavController().navigate(it)
-            val navController =
                 requireActivity().supportFragmentManager.findFragmentById(R.id.nav_host_fragment_home_fragment) as NavHostFragment
         }
+        initBottomNav()
 
 //        binding.bottomNavigation.OnNavigationItemSelectedListener { item ->
 //            when(item.itemId) {
@@ -58,9 +61,26 @@ class HomeFragment : BaseFragment<HomeFragmentBinding>(HomeFragmentBinding::infl
     }
 
     private fun initBottomNav() {
-        val navController =
-            childFragmentManager.findFragmentById(R.id.nav_host_fragment_home_fragment) as NavHostFragment
-        binding.bottomNavigation.setupWithNavController(navController.navController)
+        //Initialize Bottom Navigation View.
+        //Initialize Bottom Navigation View.
+        val navView: BottomNavigationView = binding.bottomNavigation
+
+        //Pass the ID's of Different destinations
+
+        //Pass the ID's of Different destinations
+        val appBarConfiguration = AppBarConfiguration.Builder(
+            R.id.homeFragment,
+            R.id.favouriteFragment,
+            R.id.myWalletFragment,
+            R.id.trackOrdersFragment
+        )
+            .build()
+
+        //Initialize NavController.
+
+        //Initialize NavController.
+        val navController: NavController = Navigation.findNavController(requireActivity(), binding.navHostFragmentHomeFragment.id)
+        NavigationUI.setupWithNavController(navView, navController)
     }
 
 }

@@ -97,7 +97,28 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
                 Resource.Status.SUCCESS -> {
                     logInViewModel.saveSession(binding.rememberMe.isChecked)
                     logInViewModel.saveToken(it.data!!.token)
+                    logInViewModel.saveUserId(it.data.userId)
+                    logInViewModel.checkStatus()
                     findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
+                }
+                Resource.Status.ERROR -> {
+                    i("shjowDialog", it.toString())
+//                    showDialog(it.message!!)
+                }
+                else -> {
+                }
+            }
+        })
+
+        logInViewModel.completeProfileStatus.observe(viewLifecycleOwner, {
+            binding.progressBar.hideIf(it.status == Resource.Status.LOADING)
+            when (it.status) {
+                Resource.Status.SUCCESS -> {
+                    if(it.data!!.profileCompleted)
+                        findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
+                    else
+                        findNavController().navigate(R.id.action_logInFragment_to_completeProfileFragment)
+
                 }
                 Resource.Status.ERROR -> {
                     i("shjowDialog", it.toString())

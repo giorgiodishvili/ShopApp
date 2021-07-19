@@ -1,5 +1,6 @@
 package com.android.shopapp.repository.login
 
+import com.android.shopapp.entity.CompleteProfileStatusResponse
 import com.android.shopapp.entity.login.LogInRequest
 import com.android.shopapp.entity.login.LogInResponse
 import com.android.shopapp.network.ApiService
@@ -12,6 +13,10 @@ class LogInRepositoryImpl @Inject constructor(private val apiService: ApiService
 
 
     override suspend fun logIn(login: LogInRequest): Response<LogInResponse> =
-        apiService.login(login)
+        apiService.login(login.email,login.password)
+
+
+    override suspend fun getCompleteProfileStatus(userId: Int): Response<CompleteProfileStatusResponse> =
+        apiService.completeProfileCheck(userId)
 
 }

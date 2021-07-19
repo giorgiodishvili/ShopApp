@@ -1,9 +1,12 @@
 package com.android.football.base
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
@@ -38,4 +41,11 @@ abstract class BaseFragment<VB : ViewBinding>(
         inflater: LayoutInflater,
         container: ViewGroup?
     )
+
+    fun hasCameraPermissions() =ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) ==PackageManager.PERMISSION_GRANTED
+
+    fun hasWriteStoragePermission() =ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) ==PackageManager.PERMISSION_GRANTED
+
+    fun hasReadExternalPersmission() =ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.READ_EXTERNAL_STORAGE) ==PackageManager.PERMISSION_GRANTED
+
 }

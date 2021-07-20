@@ -9,6 +9,5 @@ interface LogInRepository {
 
     suspend fun logIn(login: LogInRequest): Response<LogInResponse>
 
-    suspend fun getCompleteProfileStatus(userId:Int): Response<CompleteProfileStatusResponse>
 
 }

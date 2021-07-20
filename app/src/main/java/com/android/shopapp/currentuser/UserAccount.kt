@@ -34,7 +34,7 @@ class UserAccount @Inject constructor(@ApplicationContext context: Context) {
 
     fun token() = sharedPreference.getString(TOKEN, "")
 
-    fun saveUserId(userId:Int) = sharedPreference.edit().putInt(USER_ID,userId).apply()
+    fun saveUserId(userId: Int) = sharedPreference.edit().putInt(USER_ID, userId).apply()
 
     fun getUserId() = sharedPreference.getInt(USER_ID, -1)
 }

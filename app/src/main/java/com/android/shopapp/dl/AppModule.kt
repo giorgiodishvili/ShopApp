@@ -70,6 +70,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun completeProfileRepo(profileRepo: CompleteProfileRepositoryImpl): CompleteProfileRepository = profileRepo
+    fun completeProfileRepo(profileRepo: CompleteProfileRepositoryImpl): CompleteProfileRepository =
+        profileRepo
 
 }

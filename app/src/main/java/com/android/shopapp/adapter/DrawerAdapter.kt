@@ -1,4 +1,4 @@
-package com.android.shopapp.drawer
+package com.android.shopapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

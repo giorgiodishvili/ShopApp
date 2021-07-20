@@ -99,7 +99,6 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
                     logInViewModel.saveToken(it.data!!.token)
                     logInViewModel.saveUserId(it.data.userId)
                     logInViewModel.checkStatus()
-                    findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
                 }
                 Resource.Status.ERROR -> {
                     i("shjowDialog", it.toString())
@@ -114,11 +113,10 @@ class LogInFragment : BaseFragment<LogInFragmentBinding>(LogInFragmentBinding::i
             binding.progressBar.hideIf(it.status == Resource.Status.LOADING)
             when (it.status) {
                 Resource.Status.SUCCESS -> {
-                    if(it.data!!.profileCompleted)
+                    if (it.data!!.profileCompleted)
                         findNavController().navigate(R.id.action_logInFragment_to_homeFragment)
                     else
                         findNavController().navigate(R.id.action_logInFragment_to_completeProfileFragment)
-
                 }
                 Resource.Status.ERROR -> {
                     i("shjowDialog", it.toString())

@@ -13,4 +13,7 @@
     <string name="about">About</string>
     <string name="my_cart">My Cart</string>
     <string name="track_orders">Track Orders</string>
+    <string name="feed">My Feed</string>
+    <string name="learn_more">Learn More</string>
+    <string name="upload_your_profile_picture">Upload Your Profile Picture</string>
 </resources>

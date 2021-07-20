@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.football.base.BaseFragment
+import com.android.shopapp.adapter.PostRecyclerViewAdapter
 import com.android.shopapp.databinding.WallFragmentBinding
-import com.android.shopapp.drawer.PostRecyclerViewAdapter
 import com.android.shopapp.entity.Post
 import com.android.shopapp.network.Resource
 import dagger.hilt.android.AndroidEntryPoint

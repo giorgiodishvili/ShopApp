@@ -95,7 +95,7 @@ class SignUpFragment : BaseFragment<SignUpFragmentBinding>(SignUpFragmentBinding
             binding.progressBar.hideIf(it.status == Resource.Status.LOADING)
             when (it.status) {
                 Resource.Status.SUCCESS -> {
-                    findNavController().navigate(R.id.action_signUpFragment_to_completeProfileFragment)
+                    findNavController().navigate(R.id.action_signUpFragment_to_logInFragment)
                 }
                 Resource.Status.ERROR -> {
                     showDialog(it.message!!)

@@ -13,10 +13,7 @@ class LogInRepositoryImpl @Inject constructor(private val apiService: ApiService
 
 
     override suspend fun logIn(login: LogInRequest): Response<LogInResponse> =
-        apiService.login(login.email,login.password)
+        apiService.login(login.email, login.password)
 
-
-    override suspend fun getCompleteProfileStatus(userId: Int): Response<CompleteProfileStatusResponse> =
-        apiService.completeProfileCheck(userId)
 
 }

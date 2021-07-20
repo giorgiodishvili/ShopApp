@@ -6,6 +6,7 @@ import javax.inject.Inject
 
 class SignUpRepositoryImpl @Inject constructor(private val apiService: ApiService) :
     SignUpRepository {
-    override suspend fun signUp(signUp: RegisterRequest) = apiService.register(signUp)
+    override suspend fun signUp(signUp: RegisterRequest) =
+        apiService.register(signUp.email, signUp.password, signUp.fullName)
 
 }

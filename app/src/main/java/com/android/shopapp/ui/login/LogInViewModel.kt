@@ -9,6 +9,7 @@ import com.android.shopapp.entity.CompleteProfileStatusResponse
 import com.android.shopapp.entity.login.LogInRequest
 import com.android.shopapp.entity.login.LogInResponse
 import com.android.shopapp.network.Resource
+import com.android.shopapp.repository.completeprofile.CompleteProfileRepository
 import com.android.shopapp.repository.login.LogInRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -17,6 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LogInViewModel @Inject constructor(
     private val logInRepo: LogInRepository,
+    private val completeProfileRepository: CompleteProfileRepository
     private val userData: UserAccount
 ) : ViewModel() {
 
@@ -50,14 +52,14 @@ class LogInViewModel @Inject constructor(
         userData.saveToken(token)
     }
 
-    fun saveUserId(userId: Int){
+    fun saveUserId(userId: Int) {
         userData.saveUserId(userId)
     }
 
     fun checkStatus() =
         viewModelScope.launch {
             _completeProfileStatus.postValue(Resource.loading())
-            logInRepo.getCompleteProfileStatus(userData.getUserId()).let {
+            completeProfileRepository.getCompleteProfileStatus(userData.getUserId()).let {
                 if (it.isSuccessful) {
                     _completeProfileStatus.postValue(Resource.success(it.body()!!))
                 } else {

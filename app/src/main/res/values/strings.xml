@@ -16,4 +16,14 @@
     <string name="feed">My Feed</string>
     <string name="learn_more">Learn More</string>
     <string name="upload_your_profile_picture">Upload Your Profile Picture</string>
+    <string name="card_number">Card Number</string>
+    <string name="add_your_card">Add your Card</string>
+    <string name="card_number_edit_text_hint">3920 1239 3845 4752</string>
+    <string name="car_holder_name">Card Holder Name</string>
+    <string name="card_holder_edit_text_hint">John Doe</string>
+    <string name="expiry_date">Expiry Date</string>
+    <string name="add_location">Add Location</string>
+    <string name="add_your_address">Add Your Address</string>
+    <string name="street">street</string>
+    <string name="floor_apartment">Floor/Apartment</string>
 </resources>

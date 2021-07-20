@@ -1,33 +1,239 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:layout_marginStart="37dp"
     android:layout_marginEnd="37dp"
-    tools:context=".ui.completeprofile.CompleteProfileFragment">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/tvUpload"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:text="@string/upload_your_profile_picture"
-        android:textColor="@color/color_pink"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:context=".ui.completeprofile.CompleteProfileFragment">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/profilePicIV"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:src="@mipmap/ic_launcher_round"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUpload" />
+        <TextView
+            android:id="@+id/uploadTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="@string/upload_your_profile_picture"
+            android:textColor="@color/color_pink"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/profilePicIV"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/ic_launcher_round"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/uploadTv" />
+
+        <TextView
+            android:id="@+id/choosePhotoTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/upload_your_profile_picture"
+            android:textColor="@color/greysh_brown"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profilePicIV" />
+
+        <TextView
+            android:id="@+id/addYourCardTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:text="@string/add_your_card"
+            android:textColor="@color/color_pink"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/choosePhotoTV" />
+        <TextView
+            android:id="@+id/cardNumberTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="40dp"
+            android:textAlignment="viewStart"
+            android:text="@string/card_number"
+            android:textColor="@color/greysh_brown"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addYourCardTV" />
+
+        <EditText
+            android:id="@+id/cardNumberET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:hint="@string/card_number_edit_text_hint"
+            android:textColor="@color/greysh_brown"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardNumberTV"/>
+
+        <TextView
+            android:id="@+id/cardHolderTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:text="@string/car_holder_name"
+            android:textColor="@color/greysh_brown"
+            android:textSize="14sp"
+            android:layout_marginTop="40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardNumberET" />
+
+        <EditText
+            android:id="@+id/cardHolderET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:hint="@string/card_holder_edit_text_hint"
+            android:textColor="@color/greysh_brown"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardHolderTV"/>
+
+
+        <TextView
+            android:id="@+id/expireDateTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/expiry_date"
+            android:textAlignment="center"
+            android:textColor="@color/greysh_brown"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/securityTV"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardHolderET" />
+
+        <EditText
+            android:id="@+id/expireDateET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:textColor="@color/greysh_brown"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/expireDateTv"
+            app:layout_constraintStart_toStartOf="@+id/expireDateTv"
+            app:layout_constraintTop_toBottomOf="@+id/expireDateTv" />
+
+        <TextView
+            android:id="@+id/securityTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="@string/expiry_date"
+            android:textAlignment="center"
+            android:textColor="@color/greysh_brown"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/expireDateTv"
+            app:layout_constraintTop_toBottomOf="@+id/cardHolderET" />
+
+        <EditText
+            android:id="@+id/securityET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:textColor="@color/greysh_brown"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/securityTV"
+            app:layout_constraintStart_toStartOf="@+id/securityTV"
+            app:layout_constraintTop_toBottomOf="@+id/securityTV" />
+
+
+        <TextView
+            android:id="@+id/addLocationTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:textAlignment="center"
+            android:text="@string/add_location"
+            android:textColor="@color/color_pink"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/securityET" />
+
+        <TextView
+            android:id="@+id/addYourAddressTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textAlignment="viewStart"
+            android:text="@string/add_your_address"
+            android:textColor="@color/greysh_brown"
+
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addLocationTV" />
+
+
+        <EditText
+            android:id="@+id/addYourAddressET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:hint="@string/street"
+            android:textColor="@color/greysh_brown"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addYourAddressTV"/>
+
+        <TextView
+            android:id="@+id/floorApartmentTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:textAlignment="viewStart"
+            android:text="@string/floor_apartment"
+            android:textColor="@color/greysh_brown"
+
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/addYourAddressET" />
+
+
+        <EditText
+            android:id="@+id/floorApartmentET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:hint="@string/street"
+            android:textColor="@color/greysh_brown"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/floorApartmentTV"/>
+
+
+        <include layout="@layout/sign_in_button"
+
+            android:layout_height="57dp"
+            android:layout_width="302dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/floorApartmentET"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

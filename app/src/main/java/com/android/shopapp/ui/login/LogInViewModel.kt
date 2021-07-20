@@ -18,7 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LogInViewModel @Inject constructor(
     private val logInRepo: LogInRepository,
-    private val completeProfileRepository: CompleteProfileRepository
+    private val completeProfileRepository: CompleteProfileRepository,
     private val userData: UserAccount
 ) : ViewModel() {
 
